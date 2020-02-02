@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  -   docker build -t otecioann/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run otecioann/docker-react npm run test -- --coverage
